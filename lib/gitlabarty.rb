@@ -3,10 +3,8 @@ require 'gitlabarty/request'
 require 'gitlabarty/configuration'
 
 module Gitlabarty
-  class Error < StandardError; end
-
-  def self.post(options = {})
-    Gitlabarty::Request.create_issue(options)
+  def self.create_issue(options = {})
+    Gitlabarty::IssueRequest.create(options)
   end
 
   def self.configuration

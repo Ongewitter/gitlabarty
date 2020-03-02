@@ -1,13 +1,8 @@
 require 'net/http'
 
 module Gitlabarty
-  class Request
-    attr_accessor :title,
-                  :description,
-                  :milestone,
-                  :labels
-
-    def create_issue(params = {})
+  module IssueRequest
+    def self.create(params = {})
       post = Net::HTTP::Post.new("#{Gitlabarty.configuration.url}/issues")
       post['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
