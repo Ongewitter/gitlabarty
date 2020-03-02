@@ -1,12 +1,13 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require "gitlabarty/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "gitlabarty"
   spec.version       = Gitlabarty::VERSION
-  spec.authors       = ["CedricDeMits"]
-  spec.email         = ["cedric.demits@efeso.com"]
+  spec.authors       = ["Cedric DeMits"]
+  spec.email         = ["cedricdemits@gmail.com"]
 
   spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
   spec.description   = %q{TODO: Write a longer description or delete this line.}
