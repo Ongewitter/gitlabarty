@@ -2,19 +2,22 @@ require 'net/http'
 
 module Gitlabarty
   class Request
-    attr_accessor :header,
-                  :title,
-                  :milestone
+    attr_accessor :title,
+                  :description,
+                  :milestone,
+                  :labels
 
-    def post
-      post = Net::HTTP::POST.new("#{url}/issues")
-      post['PRIVATE-TOKEN'] = private_token
-      post.set_form_data(
-        'title' => title,
-        'milestone' => milestone
-      )
+    def create_issue(params = {})
+      post = Net::HTTP::Post.new("#{Gitlabarty.configuration.url}/issues")
+      post['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
-      post.request(req)
+      default_params = {'title' => 'New Issue'}
+      post.set_form_data(default_params.merge(params))
+
+      uri = URI(Gitlabarty.configuration.url)
+      Net::HTTP.start(uri.host, uri.port) do |http|
+        response = http.request post
+      end
     end
 
     # %w[get post put delete].each do |method|
