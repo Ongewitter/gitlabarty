@@ -6,7 +6,7 @@ module Gitlabarty
   class Error < StandardError; end
 
   def self.post(options = {})
-    Gitlabarty::Request.new(options).post
+    Gitlabarty::Request.create_issue(options)
   end
 
   def self.configuration
