@@ -1,5 +1,5 @@
 require 'gitlabarty/version'
-require 'gitlabarty/request'
+require 'gitlabarty/issuerequest'
 require 'gitlabarty/configuration'
 
 module Gitlabarty
