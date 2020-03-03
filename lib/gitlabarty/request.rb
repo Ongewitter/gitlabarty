@@ -3,15 +3,15 @@ require 'net/http'
 module Gitlabarty
   module IssueRequest
     def self.create(params = {})
-      post = Net::HTTP::Post.new("#{Gitlabarty.configuration.url}/issues")
+      default_params = { 'title' => 'New Issue' }
+      params = default_params.merge(params)
+
+      post = Net::HTTP::Post.new("#{Gitlabarty.configuration.url}/issues?#{URI.encode_www_form(params)}")
       post['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
-      default_params = {'title' => 'New Issue'}
-      post.set_form_data(default_params.merge(params))
-
       uri = URI(Gitlabarty.configuration.url)
-      Net::HTTP.start(uri.host, uri.port) do |http|
-        response = http.request post
+      Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
+        http.request post
       end
     end
 
@@ -28,12 +28,6 @@ module Gitlabarty
 
     #     validate self.class.send(method, @endpoint + path, params)
     #   end
-    # end
-
-    # private
-
-    # def http_config
-
     # end
   end
 end
