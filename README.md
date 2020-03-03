@@ -1,6 +1,11 @@
 # Gitlabarty
 A bare-bones gem for making Gitlab API requests
 
+1. Can only do issue CRUD actions
+1. Needs your personal-access-token which you should have stored when activating 2FA: [Gitlab API](https://docs.gitlab.com/ee/api/#personal-access-tokens)
+1. I might work on this more, I might not
+1. No tests as of yet, living' dat yolo life
+
 ## Installation
 
 Add this line to your application's Gemfile:
