@@ -27,7 +27,7 @@ Or install it yourself as:
 Set config:
 ```rb
 Gitlabarty.configuration do |config|
-  config.url = "https://gitlab.example.com/api/v4/projects/" # url to your project
+  config.url = "https://your.project.com/api/v4/projects/" # url to your project
   config.id = 1 # id of the project you want to create issues in
   config.private_token = "your-personal-access-token" # your personal access token for the gitlab project
 end
