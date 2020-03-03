@@ -13,12 +13,12 @@ module Gitlabarty
     request.create
   end
 
-  def self.update_issue(id, options)
+  def self.update_issue(id, options = {})
     request = Gitlabarty::IssueRequest.new(id: id, params: options)
     request.update
   end
 
-  def self.delete_issue(id, options)
+  def self.delete_issue(id, options = {})
     request = Gitlabarty::IssueRequest.new(id: id, params: options)
     request.delete
   end
