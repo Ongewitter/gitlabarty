@@ -24,28 +24,28 @@ Install the gem
 Set config:
 ```rb
 Gitlabarty.configuration do |config|
-  config.url = "https://gitlab.example.com/api/v4/projects/"
-  config.id = 1
-  config.private_token = "your-private-access-token"
+  config.url = "https://gitlab.example.com/api/v4/projects/" # url to your project
+  config.id = 1 # id of the project you want to create issues in
+  config.private_token = "your-private-access-token" # you should have stored this waaaaaaaay back
 end
 ```
 
-Create an issue:
+Create an issue: [gitlab API](https://docs.gitlab.com/ee/api/issues.html#new-issue)
 ```rb
 Gitlabarty.create_issue(:options)
 ```
 
-Update an issue:
+Update/Edit an issue: [gitlab API](https://docs.gitlab.com/ee/api/issues.html#edit-issue)
 ```rb
 Gitlabarty.update_issue(:id, :options)
 ```
 
-Read an issue:
+Read/Get an issue: [gitlab API](https://docs.gitlab.com/ee/api/issues.html#single-issue)
 ```rb
 Gitlabarty.read_issue(:id)
 ```
 
-Delete an issue:
+Delete/Destroy an issue: [gitlab API](https://docs.gitlab.com/ee/api/issues.html#delete-an-issue)
 ```rb
 Gitlabarty.delete_issue(:id)
 ```
