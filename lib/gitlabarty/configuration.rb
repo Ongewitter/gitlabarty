@@ -4,7 +4,7 @@ module Gitlabarty
                   :id,
                   :private_token
 
-    def initialize(options = {url: 'https://git.solvace.com/api/v4/projects/', id: 38, private_token: 'something'})
+    def initialize(options = {url: 'https://gitlab.example.com/api/v4/projects/', id: 1, private_token: 'something'})
       self.url = options[:url]
       self.id = options[:id]
       self.private_token = options[:private_token]
