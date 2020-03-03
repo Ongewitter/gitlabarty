@@ -1,4 +1,5 @@
 require 'net/http'
+require 'json'
 
 module Gitlabarty
   class IssueRequest
@@ -20,17 +21,19 @@ module Gitlabarty
       post['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
       response = send_request(post)
-      puts "#{response.body}"
+      body = JSON.parse(response.body)
+      self.id = body.iid
+      puts body.to_s
     end
 
     def read
       return unless id
 
-      get = Net::HTTP::Get.new("#{issue_url}/#{id}?#{URI.encode_www_form(params)}")
+      get = Net::HTTP::Get.new("#{issue_url}/#{id}")
       get['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
       response = send_request(get)
-      puts "#{response.body}"
+      puts JSON.parse(response.body).to_s
     end
 
     def update
@@ -42,7 +45,7 @@ module Gitlabarty
       put['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
       response = send_request(put)
-      puts "#{response.body}"
+      puts JSON.parse(response.body).to_s
     end
 
     def delete
@@ -52,7 +55,7 @@ module Gitlabarty
       del['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
       response = send_request(del)
-      puts "#{response.body}"
+      puts JSON.parse(response.body).to_s
     end
 
 
