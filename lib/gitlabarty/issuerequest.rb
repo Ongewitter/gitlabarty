@@ -9,10 +9,13 @@ module Gitlabarty
       "#{Gitlabarty.configuration.url}/#{Gitlabarty.configuration.id}/issues"
     end
 
-    def create
+    def initialize(id, params = {})
+      @id = id
       default_params = { title: 'New Issue' }
-      params = default_params.merge(post_params(params))
+      @params = default_params.merge(post_params(params))
+    end
 
+    def create
       post = Net::HTTP::Post.new("#{issue_url}?#{URI.encode_www_form(params)}")
       post['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
@@ -51,6 +54,7 @@ module Gitlabarty
       response = send_request(del)
       puts "#{response.body}"
     end
+
 
     private
 
