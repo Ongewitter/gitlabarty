@@ -33,14 +33,15 @@ end
 Create an issue: [gitlab API](https://docs.gitlab.com/ee/api/issues.html#new-issue)
 ```rb
 Gitlabarty.create_issue(:options)
-
-
 ```
 
 Update/Edit an issue: [gitlab API](https://docs.gitlab.com/ee/api/issues.html#edit-issue)
 ```rb
-Gitlabarty.update_issue(:id, :options)
+Gitlabarty.update_issue(:issue_id, :options)
 ```
+
+### Options table:
+
 Option | Type | Required |Description
 ---|---|---|---
 title | String | yes | The title of an issue
@@ -60,12 +61,12 @@ epic_iid | 	Integer | no | IID of the epic to add the issue to. Valid values ar
 
 Read/Get an issue: [gitlab API](https://docs.gitlab.com/ee/api/issues.html#single-issue)
 ```rb
-Gitlabarty.read_issue(:id)
+Gitlabarty.read_issue(:issue_id)
 ```
 
 Delete/Destroy an issue: [gitlab API](https://docs.gitlab.com/ee/api/issues.html#delete-an-issue)
 ```rb
-Gitlabarty.delete_issue(:id)
+Gitlabarty.delete_issue(:issue_id)
 ```
 
 ## Development
