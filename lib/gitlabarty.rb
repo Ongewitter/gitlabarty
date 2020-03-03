@@ -8,8 +8,8 @@ module Gitlabarty
     request.create
   end
 
-  def self.read_issue(id, *options)
-    request = Gitlabarty::IssueRequest.new(id: id, params: options)
+  def self.read_issue(id)
+    request = Gitlabarty::IssueRequest.new(id: id)
     request.read
   end
 
