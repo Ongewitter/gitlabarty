@@ -21,7 +21,7 @@ module Gitlabarty
       post['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
       response = send_request(post)
-      puts JSON.parse(response.body).to_s
+      JSON.parse(response.body).to_s
     end
 
     def read
@@ -31,7 +31,7 @@ module Gitlabarty
       get['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
       response = send_request(get)
-      puts JSON.parse(response.body).to_s
+      JSON.parse(response.body).to_s
     end
 
     def update
@@ -43,7 +43,7 @@ module Gitlabarty
       put['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
       response = send_request(put)
-      puts JSON.parse(response.body).to_s
+      JSON.parse(response.body).to_s
     end
 
     def delete
@@ -53,7 +53,7 @@ module Gitlabarty
       del['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
       response = send_request(del)
-      puts JSON.parse(response.body).to_s
+      JSON.parse(response.body).to_s
     end
 
     private
