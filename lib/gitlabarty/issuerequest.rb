@@ -29,7 +29,7 @@ module Gitlabarty
     def read
       return unless @id
 
-      get = Net::HTTP::Get.new("#{issue_url}/#{id}")
+      get = Net::HTTP::Get.new("#{issue_url}/#{@id}")
       get['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
       response = send_request(get)
@@ -41,7 +41,7 @@ module Gitlabarty
 
       params = put_params(@params)
 
-      put = Net::HTTP::Put.new("#{issue_url}/#{id}?#{URI.encode_www_form(params)}")
+      put = Net::HTTP::Put.new("#{issue_url}/#{@id}?#{URI.encode_www_form(params)}")
       put['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
       response = send_request(put)
@@ -51,7 +51,7 @@ module Gitlabarty
     def delete
       return unless @id
 
-      del = Net::HTTP::Delete.new("#{issue_url}/#{id}")
+      del = Net::HTTP::Delete.new("#{issue_url}/#{@id}")
       del['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
       response = send_request(del)
