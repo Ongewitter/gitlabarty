@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['cedricdemits@gmail.com']
 
   spec.summary       = 'A barebones gem for making gitlab api requests.'
-  spec.description   = 'Description l8r m8'
+  spec.description   = "Can only do issue's CRUD actions. I might work on this more, I might not."
   spec.homepage      = 'https://github.com/Ongewitter/gitlabarty.git'
   spec.license       = 'MIT'
 
