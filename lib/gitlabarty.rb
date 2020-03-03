@@ -4,7 +4,7 @@ require 'gitlabarty/configuration'
 
 module Gitlabarty
   def self.read_issue(id)
-    request = Gitlabarty::IssueRequest.new(id: id)
+    request = Gitlabarty::IssueRequest.new(id)
     request.read
   end
 
@@ -14,12 +14,12 @@ module Gitlabarty
   end
 
   def self.update_issue(id, options = {})
-    request = Gitlabarty::IssueRequest.new(id: id, params: options)
+    request = Gitlabarty::IssueRequest.new(id, params: options)
     request.update
   end
 
   def self.delete_issue(id, options = {})
-    request = Gitlabarty::IssueRequest.new(id: id, params: options)
+    request = Gitlabarty::IssueRequest.new(id, params: options)
     request.delete
   end
 

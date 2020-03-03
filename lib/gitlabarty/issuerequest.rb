@@ -27,8 +27,6 @@ module Gitlabarty
     end
 
     def read
-      p @id
-      p issue_url
       return unless @id
 
       get = Net::HTTP::Get.new("#{issue_url}/#{@id}")
