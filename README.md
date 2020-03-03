@@ -19,7 +19,36 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Install the gem
+
+Set config:
+```rb
+Gitlabarty.configuration do |config|
+  config.url = "https://gitlab.example.com/api/v4/projects/"
+  config.id = 1
+  config.private_token = "your-private-access-token"
+end
+```
+
+Create an issue:
+```rb
+Gitlabarty.create_issue(:options)
+```
+
+Update an issue:
+```rb
+Gitlabarty.update_issue(:id, :options)
+```
+
+Read an issue:
+```rb
+Gitlabarty.read_issue(:id)
+```
+
+Delete an issue:
+```rb
+Gitlabarty.delete_issue(:id)
+```
 
 ## Development
 
