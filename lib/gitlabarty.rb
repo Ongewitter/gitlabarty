@@ -3,22 +3,22 @@ require 'gitlabarty/issuerequest'
 require 'gitlabarty/configuration'
 
 module Gitlabarty
-  def self.create_issue(options = {})
-    request = Gitlabarty::IssueRequest.new(params: options)
-    request.create
-  end
-
   def self.read_issue(id)
     request = Gitlabarty::IssueRequest.new(id: id)
     request.read
   end
 
-  def self.update_issue(id, *options)
+  def self.create_issue(options = {})
+    request = Gitlabarty::IssueRequest.new(params: options)
+    request.create
+  end
+
+  def self.update_issue(id, options)
     request = Gitlabarty::IssueRequest.new(id: id, params: options)
     request.update
   end
 
-  def self.delete_issue(id, *options)
+  def self.delete_issue(id, options)
     request = Gitlabarty::IssueRequest.new(id: id, params: options)
     request.delete
   end

@@ -22,7 +22,7 @@ module Gitlabarty
 
       response = send_request(post)
       body = JSON.parse(response.body)
-      self.id = body.iid
+      self.id = body[:iid]
       puts body.to_s
     end
 
