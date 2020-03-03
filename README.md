@@ -33,12 +33,30 @@ end
 Create an issue: [gitlab API](https://docs.gitlab.com/ee/api/issues.html#new-issue)
 ```rb
 Gitlabarty.create_issue(:options)
+
+
 ```
 
 Update/Edit an issue: [gitlab API](https://docs.gitlab.com/ee/api/issues.html#edit-issue)
 ```rb
 Gitlabarty.update_issue(:id, :options)
 ```
+Option | Type | Required |Description
+---|---|---|---
+title | String | yes | The title of an issue
+description | String | no | The description of an issue. Limited to 1,048,576 characters.
+confidential | Boolean | no | Set an issue to be confidential. Default is false.
+assignee_ids | Integer | array | no	The ID of a user to assign issue
+milestone_id | Integer | no | The global ID of a milestone to assign issue
+labels | String | no | Comma-separated label names for an issue
+created_at | String | no | Date time string, ISO 8601 formatted, e.g. 2016-03-11T03:45:40Z (requires admin or project/group owner rights)
+due_date | String | no | Date time string in the format YEAR-MONTH-DAY, e.g. 2016-03-11
+merge_request_to_resolve_discussions_of | Integer | no | The IID of a merge request in which to resolve all issues. This will fill the issue with a default description and mark all discussions as resolved. When passing a description or title, these values will take precedence over the default values.
+discussion_to_resolve | String | no | The ID of a discussion to resolve. This will fill in the issue with a default description and mark the discussion as resolved. Use in combination with merge_request_to_resolve_discussions_of.
+weight | 	Integer | no | The weight of the issue. Valid values are greater than or equal to 0.
+epic_id | 	Integer | no | ID of the epic to add the issue to. Valid values are greater than or equal to 0.
+epic_iid | 	Integer | no | IID of the epic to add the issue to. Valid values are greater than or equal to 0. (deprecated, will be removed in 13.0)
+
 
 Read/Get an issue: [gitlab API](https://docs.gitlab.com/ee/api/issues.html#single-issue)
 ```rb
