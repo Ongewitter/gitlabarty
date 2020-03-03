@@ -21,9 +21,7 @@ module Gitlabarty
       post['PRIVATE-TOKEN'] = Gitlabarty.configuration.private_token
 
       response = send_request(post)
-      body = JSON.parse(response.body)
-      self.id = body[:iid]
-      puts body.to_s
+      puts JSON.parse(response.body).to_s
     end
 
     def read
