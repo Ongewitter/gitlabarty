@@ -3,8 +3,9 @@ module Gitlabarty
     attr_accessor :url,
                   :private_token
 
-    def initialize(options = {url: 'https://git.solvace.com/api/v4/projects/4', private_token: 'something'})
+    def initialize(options = {url: 'https://git.solvace.com/api/v4/projects/', id: 4, private_token: 'something'})
       self.url = options[:url]
+      self.id = options[:id]
       self.private_token = options[:private_token]
     end
   end
